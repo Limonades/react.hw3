@@ -81,6 +81,7 @@ const PostList = React.createClass({
                         author={post.author}
                         text={post.text}
                         year={post.year}
+                        addedClass={post.addedClass}
                     />
                 ))}
                 <div className='btn-wrap'>
@@ -149,7 +150,7 @@ const FillBar = React.createClass({
             author: this.state.author,
             title: this.state.title,
             text: this.state.text,
-            addedClass: 'pidar'
+            addedClass: 'user-post'
         };
 
         console.log(newArticle);
@@ -226,19 +227,32 @@ const App = React.createClass({
         }
     },
 
+    componentWillMount() {
+        const data = JSON.parse(localStorage.getItem('data'));
+
+        console.log('забрали с локала' + data);
+
+        // this.setState({ data });
+
+    },
+
+    componentDidUpdate() {
+        const data = JSON.stringify(this.state.data);
+        console.log('положили в локал' +  data);
+        localStorage.setItem('data', data);
+    },
+
     addArticle(card) {
         this.setState({
             cards: [card, ...this.state.cards]
         })
     },
 
-    // componentDidUpdate(prev, state) {
-    //     console.log(state);
-    // },
-
     loadMore(arr, num) {
         if (num >= arr.length) {
             document.querySelector('.btn-wrap').classList.add('hidden')
+        } else {
+            document.querySelector('.btn-wrap').classList.remove('hidden')
         }
         return  arr.slice(0, num)
     },
@@ -257,6 +271,7 @@ const App = React.createClass({
     createArticle(article) {
         console.log(articles);
         articles.unshift(article);
+
         console.log(articles);
         console.log(this.state);
     },
