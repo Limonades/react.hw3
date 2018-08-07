@@ -64,19 +64,13 @@ class App extends React.Component {
     }
 
     createArticle(article) {
-
         const newLocalArticles = this.state.data;
+        newLocalArticles.unshift(article);
 
-        if (JSON.parse(localStorage.getItem('localData'))) {
-            newLocalArticles.unshift(article);
-
-            this.setState({
-                data: newLocalArticles,
-                cards: newLocalArticles.slice(0,2)
-            })
-        } else {
-            articles.unshift(article);
-        }
+        this.setState({
+            data: newLocalArticles,
+            cards: newLocalArticles.slice(0,2)
+        })
     }
 
     render() {
