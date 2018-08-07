@@ -69,7 +69,7 @@ class App extends React.Component {
 
         this.setState({
             data: newLocalArticles,
-            cards: newLocalArticles.slice(0, 2)
+            cards: newLocalArticles.slice(0, this.state.counter)
         })
     }
 

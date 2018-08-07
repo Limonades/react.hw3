@@ -138,11 +138,19 @@ input::-webkit-inner-spin-button {
     word-break: break-word;
     text-transform: uppercase;
     color: white;
-    transition: opacity .6s ease;
+    transition: opacity 1s ease;
+    animation: flicker 5s infinite;
+}
+
+@-webkit-keyframes flicker {
+    0%   { opacity: .5; }
+    50% { opacity: 1; }
+    100% { opacity: .5; }
 }
 
 aside:hover .hover-txt {
     opacity: 0;
+    animation: none;
 }
 
 .sidebar__title {
