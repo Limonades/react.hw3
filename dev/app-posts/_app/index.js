@@ -22,35 +22,19 @@ class App extends React.Component {
 
     componentDidMount() {
         const localData = JSON.parse(localStorage.getItem('localData'));
-        console.log('pidar blet' + localData);
+
         if (localData) {
-            console.log(localData);
             this.setState({ data: localData, cards: localData.slice(0,2) });
         }
     }
 
     componentDidUpdate() {
         const data = JSON.stringify(this.state.data);
-        console.log('hyu    ' + data);
-
         const localData = [];
-        // console.log(data);
 
-        // const localData = JSON.parse(localStorage.getItem('localData'));
-        // console.log(localData);
         if (data.length !== localData.length) {
             localStorage.setItem('localData', localData.concat(data));
         }
-
-        // if (localData) {
-        //     // console.log(localData);
-        //     if (data.length !== localData.length) {
-        //         const her = localData.concat(data);
-        //         localStorage.setItem('localData', her);
-        //     }
-        // }
-
-
     }
 
     addArticle(card) {
@@ -80,11 +64,11 @@ class App extends React.Component {
     }
 
     createArticle(article) {
-        // console.log(articles);
-        articles.unshift(article);
-
-        // console.log(articles);
-        // console.log(this.state);
+        if (JSON.parse(localStorage.getItem('localData'))) {
+            this.state.data.unshift(article);
+        } else {
+            articles.unshift(article);
+        }
     }
 
     render() {
