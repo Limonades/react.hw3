@@ -70,7 +70,8 @@ class FillBar extends React.Component {
 
         createArticle(newArticle);
 
-        this.props.handleClick(e);
+        // получай!
+        // this.props.handleClick(e);
 
         this.clearBar();
     }

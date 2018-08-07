@@ -24,7 +24,7 @@ class App extends React.Component {
         const localData = JSON.parse(localStorage.getItem('localData'));
 
         if (localData) {
-            this.setState({ data: localData, cards: localData.slice(0,2) });
+            this.setState({ data: localData });
         }
     }
 
@@ -71,7 +71,8 @@ class App extends React.Component {
             newLocalArticles.unshift(article);
 
             this.setState({
-                data: newLocalArticles
+                data: newLocalArticles,
+                cards: newLocalArticles.slice(0,2)
             })
         } else {
             articles.unshift(article);
