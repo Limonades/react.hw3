@@ -55,7 +55,7 @@ class App extends React.Component {
     handleClick(e) {
         e.preventDefault();
         const { counter, data } = this.state;
-        const step = e.target.tagName.toLowerCase() === 'a' ? counter + 2 : counter;
+        const step = counter + 2;
 
         this.setState({
             cards: this.loadMore(data, step),
@@ -78,7 +78,7 @@ class App extends React.Component {
         return (
             <div>
                 <PostList cards={cards} handleClick={this.handleClick} />
-                <FillBar createArticle={this.createArticle} handleClick={this.handleClick} />
+                <FillBar createArticle={this.createArticle} />
             </div>
         )
     }

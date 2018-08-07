@@ -70,9 +70,6 @@ class FillBar extends React.Component {
 
         createArticle(newArticle);
 
-        // получай!
-        // this.props.handleClick(e);
-
         this.clearBar();
     }
 
@@ -99,7 +96,7 @@ class FillBar extends React.Component {
                             className='author-field'
                             value={author}
                             name='author'
-                            required
+                            // required
                         />
                     </label>
                     <label>
@@ -111,7 +108,8 @@ class FillBar extends React.Component {
                             name='year'
                             /*type="number"
                             min='1900' max='2018'*/
-                            required/>
+                            // required
+                        />
                     </label>
                     <label>
                         Short Desription
@@ -120,7 +118,7 @@ class FillBar extends React.Component {
                             className='text-field'
                             value={text}
                             name='text'
-                            required
+                            // required
                         />
                     </label>
                     <button className='form-btn'>
