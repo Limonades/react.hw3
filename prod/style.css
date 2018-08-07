@@ -54,7 +54,7 @@ article {
 .sidebar {
     position: fixed;
     left: 0;
-    top: 250px;
+    top: 18vh;
     padding: 50px 50px 50px 30px;
     background: orange;
     z-index: 20;
@@ -127,4 +127,25 @@ input::-webkit-inner-spin-button {
     0%   { background-color: antiquewhite; }
     95% { background-color: antiquewhite; }
     100% { background-color: #eeeeee; }
+}
+
+.hover-txt {
+    position: absolute;
+    top: 13px;
+    right: 2px;
+    font-size: 10px;
+    width: 35px;
+    word-break: break-word;
+    text-transform: uppercase;
+    color: white;
+    transition: opacity .6s ease;
+}
+
+aside:hover .hover-txt {
+    opacity: 0;
+}
+
+.sidebar__title {
+    color: white;
+    margin-top: 0;
 }

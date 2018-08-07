@@ -64,8 +64,15 @@ class App extends React.Component {
     }
 
     createArticle(article) {
+
+        const newLocalArticles = this.state.data;
+
         if (JSON.parse(localStorage.getItem('localData'))) {
-            this.state.data.unshift(article);
+            newLocalArticles.unshift(article);
+
+            this.setState({
+                data: newLocalArticles
+            })
         } else {
             articles.unshift(article);
         }

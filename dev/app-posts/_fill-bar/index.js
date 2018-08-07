@@ -79,6 +79,7 @@ class FillBar extends React.Component {
         const {title, author, text, year} = this.state;
         return (
             <aside className='sidebar'>
+                <h2 className='sidebar__title'>Add the article</h2>
                 <form className='sidebar__form' onSubmit={this.handleSubmit}>
                     <label>
                         Movie title
@@ -125,6 +126,9 @@ class FillBar extends React.Component {
                         save
                     </button>
                 </form>
+                <div className='hover-txt'>
+                    hover me
+                </div>
             </aside>
         )
     }
