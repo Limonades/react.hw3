@@ -65,12 +65,12 @@ class App extends React.Component {
 
     createArticle(article) {
         const newLocalArticles = this.state.data;
-        const newCards = this.state.cards;
         newLocalArticles.unshift(article);
+        console.log('cards ' +  newCards);
 
         this.setState({
             data: newLocalArticles,
-            cards: newCards
+            cards: newLocalArticles.slice(0, 2)
         })
     }
 
