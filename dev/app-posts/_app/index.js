@@ -11,11 +11,11 @@ class App extends React.Component {
         this.state = {
             data: articles,
             cards: articles.slice(0, 2),
-            counter: 2
+            counter: 2,
+            isHasMore: false
         };
 
         this.handleClick = this.handleClick.bind(this);
-        this.addArticle = this.addArticle.bind(this);
         this.loadMore = this.loadMore.bind(this);
         this.createArticle = this.createArticle.bind(this);
     }
@@ -37,18 +37,18 @@ class App extends React.Component {
         }
     }
 
-    addArticle(card) {
-        this.setState({
-            cards: [card, ...this.state.cards]
-        })
+    checkArticlesCount() {
+        const { data, counter } = this.state;
+
+        counter >= data.length
+            ? this.setState({isHasMore: false})
+            : this.setState({isHasMore: true});
     }
 
     loadMore(arr, num) {
-        if (num >= arr.length) {
-            document.querySelector('.btn-wrap').classList.add('hidden')
-        } else {
-            document.querySelector('.btn-wrap').classList.remove('hidden')
-        }
+
+        this.checkArticlesCount();
+
         return  arr.slice(0, num)
     }
 
@@ -60,7 +60,9 @@ class App extends React.Component {
         this.setState({
             cards: this.loadMore(data, step),
             counter: step
-        })
+        });
+
+        this.checkArticlesCount();
     }
 
     createArticle(article) {
