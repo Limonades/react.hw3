@@ -54,7 +54,7 @@ article {
 .sidebar {
     position: fixed;
     left: 0;
-    top: 250px;
+    top: 0px;
     padding: 50px 50px 50px 30px;
     background: orange;
     z-index: 20;

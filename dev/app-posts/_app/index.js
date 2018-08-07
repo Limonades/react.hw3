@@ -20,19 +20,37 @@ class App extends React.Component {
         this.createArticle = this.createArticle.bind(this);
     }
 
-    componentWillMount() {
-        const data = JSON.parse(localStorage.getItem('data'));
-
-        console.log('забрали с локала' + data);
-
-        // this.setState({ data });
-
+    componentDidMount() {
+        const localData = JSON.parse(localStorage.getItem('localData'));
+        console.log('pidar blet' + localData);
+        if (localData) {
+            console.log(localData);
+            this.setState({ data: localData, cards: localData.slice(0,2) });
+        }
     }
 
     componentDidUpdate() {
         const data = JSON.stringify(this.state.data);
-        console.log('положили в локал' +  data);
-        localStorage.setItem('data', data);
+        console.log('hyu    ' + data);
+
+        const localData = [];
+        // console.log(data);
+
+        // const localData = JSON.parse(localStorage.getItem('localData'));
+        // console.log(localData);
+        if (data.length !== localData.length) {
+            localStorage.setItem('localData', localData.concat(data));
+        }
+
+        // if (localData) {
+        //     // console.log(localData);
+        //     if (data.length !== localData.length) {
+        //         const her = localData.concat(data);
+        //         localStorage.setItem('localData', her);
+        //     }
+        // }
+
+
     }
 
     addArticle(card) {
@@ -62,11 +80,11 @@ class App extends React.Component {
     }
 
     createArticle(article) {
-        console.log(articles);
+        // console.log(articles);
         articles.unshift(article);
 
-        console.log(articles);
-        console.log(this.state);
+        // console.log(articles);
+        // console.log(this.state);
     }
 
     render() {

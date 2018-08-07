@@ -9,7 +9,10 @@ module.exports = {
 	},
 	watch: NODE_ENV === 'development',
 	devtool: NODE_ENV === 'development' && 'eval-source-map',
-	mode: NODE_ENV,
+    devServer: {
+		open: true
+	},
+    mode: NODE_ENV,
 	module: {
 		rules: [
 			{
