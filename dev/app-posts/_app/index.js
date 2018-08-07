@@ -66,7 +66,6 @@ class App extends React.Component {
     createArticle(article) {
         const newLocalArticles = this.state.data;
         newLocalArticles.unshift(article);
-        console.log('cards ' +  newCards);
 
         this.setState({
             data: newLocalArticles,
