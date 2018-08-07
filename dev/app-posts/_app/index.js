@@ -12,7 +12,7 @@ class App extends React.Component {
             data: articles,
             cards: articles.slice(0, 2),
             counter: 2,
-            isHasMore: false
+            isHasMore: true
         };
 
         this.handleClick = this.handleClick.bind(this);
@@ -40,9 +40,9 @@ class App extends React.Component {
     checkArticlesCount() {
         const { data, counter } = this.state;
 
-        counter >= data.length
-            ? this.setState({isHasMore: false})
-            : this.setState({isHasMore: true});
+        counter <= data.length
+            ? this.setState({isHasMore: true})
+            : this.setState({isHasMore: false});
     }
 
     loadMore(arr, num) {
@@ -76,10 +76,10 @@ class App extends React.Component {
     }
 
     render() {
-        const { cards } = this.state;
+        const { cards, isHasMore } = this.state;
         return (
             <div>
-                <PostList cards={cards} handleClick={this.handleClick} />
+                <PostList isHasMore={isHasMore} cards={cards} handleClick={this.handleClick} />
                 <FillBar createArticle={this.createArticle} />
             </div>
         )

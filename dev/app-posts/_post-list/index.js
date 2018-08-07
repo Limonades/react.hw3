@@ -17,11 +17,19 @@ class PostList extends React.Component {
                         addedClass={post.addedClass}
                     />
                 ))}
-                <div className='btn-wrap'>
-                    <a onClick={handleClick} href='#' className='btn'>
-                        Load more
-                    </a>
-                </div>
+                {
+                    console.log(this.props.isHasMore)
+                }
+                {
+                    this.props.isHasMore ? (
+                        <div className='btn-wrap'>
+                            <a onClick={handleClick} href='#' className='btn'>
+                                Load more
+                            </a>
+                        </div>
+                    ) : null
+                }
+
             </section>
         )
     }
